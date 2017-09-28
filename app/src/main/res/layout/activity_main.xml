@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.zoker.uilib.MainActivity">
 
+    <com.zoker.lib.image.MaterialImageView
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:background="#553290"
+        android:src="#553290"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,11 +20,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <com.zoker.lib.image.MaterialImageView
-        android:layout_width="320dp"
-        android:layout_height="300dp"
-        app:mode="rounded_corners"
-        app:round_size="50"
-        android:src="#553290"/>
 </android.support.constraint.ConstraintLayout>

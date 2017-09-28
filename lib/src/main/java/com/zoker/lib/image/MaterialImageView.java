@@ -61,6 +61,8 @@ public class MaterialImageView extends android.support.v7.widget.AppCompatImageV
         if (mode == rounded_corners){
             roundRectF =new RectF();
         }
+        Log.d(TAG,"#initView mode="+mode);
+        Log.d(TAG,"#initView round_size="+round_size);
     }
 
     @Override
