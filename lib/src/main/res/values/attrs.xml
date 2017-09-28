@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MaterialImageView">
+        <attr name="mode">
+            <enum name="circle" value="0"/>
+            <enum name="rounded_corners" value="1"/>
+        </attr>
+        <attr name="round_size" format="integer"/>
+    </declare-styleable>
+</resources>

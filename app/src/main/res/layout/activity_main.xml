@@ -18,5 +18,7 @@
     <com.zoker.lib.image.MaterialImageView
         android:layout_width="320dp"
         android:layout_height="300dp"
+        app:mode="rounded_corners"
+        app:round_size="50"
         android:src="#553290"/>
 </android.support.constraint.ConstraintLayout>
