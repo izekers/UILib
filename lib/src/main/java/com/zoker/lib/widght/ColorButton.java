@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.widget.Button;
 
@@ -17,7 +18,7 @@ import com.zoker.lib.R;
 public class ColorButton extends android.support.v7.widget.AppCompatButton {
     //背景shape
     GradientDrawable normalShape;
-    GradientDrawable selectShape;
+    GradientDrawable pressShape;
     StateListDrawable bg;
 
     public ColorButton(Context context) {
@@ -37,29 +38,46 @@ public class ColorButton extends android.support.v7.widget.AppCompatButton {
 
     private void initView(AttributeSet attrs) {
         if (attrs != null) {
-            normalShape = new GradientDrawable();
-            selectShape = new GradientDrawable();
             bg = new StateListDrawable();
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ColorButton);
             int radius = (int) typedArray.getDimension(R.styleable.ColorButton_radius, 0);
             int border_width = (int) typedArray.getDimension(R.styleable.ColorButton_border_width, 0);
             int borderColor = typedArray.getColor(R.styleable.ColorButton_border_color, 0);
             int normalColor = typedArray.getColor(R.styleable.ColorButton_normal_color, 0);
-            int selectColor = typedArray.getColor(R.styleable.ColorButton_select_color, 0);
+            int pressColor = typedArray.getColor(R.styleable.ColorButton_press_color, 0);
 
-            normalShape.setCornerRadius(radius);
-            normalShape.setStroke(border_width, borderColor);
-            normalShape.setColor(normalColor);
+            getNormalShape().setCornerRadius(radius);
+            getNormalShape().setStroke(border_width, borderColor);
+            getNormalShape().setColor(normalColor);
 
-            selectShape.setCornerRadius(radius);
-            selectShape.setStroke(border_width, borderColor);
-            selectShape.setColor(selectColor);
+            getPressShape().setCornerRadius(radius);
+            getPressShape().setStroke(border_width, borderColor);
+            getPressShape().setColor(pressColor);
 
-            bg.addState(new int[]{android.R.attr.state_pressed}, selectShape);
-            bg.addState(new int[]{}, normalShape);
+            bg.addState(new int[]{android.R.attr.state_pressed}, getPressShape());
+            bg.addState(new int[]{}, getNormalShape());
 
             this.setBackgroundDrawable(bg);
             typedArray.recycle();
         }
+    }
+
+    public void setColor(@ColorInt int normalColor,@ColorInt int pressColor){
+        getNormalShape().setColor(normalColor);
+        getPressShape().setColor(pressColor);
+        bg.addState(new int[]{android.R.attr.state_pressed}, getPressShape());
+        bg.addState(new int[]{}, getNormalShape());
+        this.setBackgroundDrawable(bg);
+    }
+
+    private GradientDrawable getNormalShape() {
+        if (normalShape==null)
+            normalShape=new GradientDrawable();
+        return normalShape;
+    }
+    private GradientDrawable getPressShape() {
+        if (pressShape==null)
+            pressShape=new GradientDrawable();
+        return pressShape;
     }
 }

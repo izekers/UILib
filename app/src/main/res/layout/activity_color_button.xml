@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:normal_color="@android:color/holo_red_light"
-        app:select_color="@android:color/holo_red_dark"
+        app:press_color="@android:color/holo_red_dark"
         android:text="红色"/>
 
     <com.zoker.lib.widght.ColorButton
@@ -20,7 +20,7 @@
         android:layout_margin="12dp"
         app:radius="10dp"
         app:normal_color="@android:color/holo_red_light"
-        app:select_color="@android:color/holo_red_dark"
+        app:press_color="@android:color/holo_red_dark"
         android:text="红色加10弧度"/>
 
     <com.zoker.lib.widght.ColorButton
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         app:normal_color="@android:color/holo_blue_light"
-        app:select_color="@android:color/holo_blue_dark"
+        app:press_color="@android:color/holo_blue_dark"
         android:text="蓝色"/>
 
     <com.zoker.lib.widght.ColorButton
@@ -38,7 +38,7 @@
         app:border_color="@android:color/darker_gray"
         app:border_width="1dp"
         app:normal_color="@android:color/holo_blue_light"
-        app:select_color="@android:color/holo_blue_dark"
+        app:press_color="@android:color/holo_blue_dark"
         android:text="蓝色加边"/>
 
     <com.zoker.lib.widght.ColorButton
@@ -48,7 +48,7 @@
         app:border_color="@android:color/darker_gray"
         app:border_width="1dp"
         app:normal_color="@android:color/holo_blue_light"
-        app:select_color="@android:color/holo_blue_dark"
+        app:press_color="@android:color/holo_blue_dark"
         app:radius="10dp"
         android:text="蓝色加边加10弧度"/>
 
@@ -59,7 +59,7 @@
         app:border_color="@android:color/darker_gray"
         app:border_width="1dp"
         app:normal_color="@android:color/holo_blue_light"
-        app:select_color="@android:color/holo_blue_dark"
+        app:press_color="@android:color/holo_blue_dark"
         app:radius="20dp"
         android:text="蓝色加边加20弧度"/>
 </LinearLayout>
