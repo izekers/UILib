@@ -38,13 +38,13 @@ dependencies {
 
 *资源文件中使用
 ```xml
-    app:mode=""  (circle:圆形边框 normal:不做修改 rounded_corners:圆角边框)
-    app:round_size=""  (round_size:圆角边框弯曲弧度)
+app:mode=""  (circle:圆形边框 normal:不做修改 rounded_corners:圆角边框)
+app:round_size=""  (round_size:圆角边框弯曲弧度)
 ```
 *java代码中使用
 
 ```java
-    imageView.setMode(MaterialImageView.MODE_CIRCLE); (MaterialImageView.MODE_CIRCLE:圆形边框  MaterialImageView.MODE_NORMAL:不做修改 MaterialImageView.MODE_ROUNDED_CORNERS:圆角边框)
+imageView.setMode(MaterialImageView.MODE_CIRCLE); (MaterialImageView.MODE_CIRCLE:圆形边框  MaterialImageView.MODE_NORMAL:不做修改 MaterialImageView.MODE_ROUNDED_CORNERS:圆角边框)
 ```
 
 
@@ -52,20 +52,20 @@ dependencies {
 
 *资源文件中使用
 ```xml
-   边框颜色：
-   app:border_color="@android:color/darker_gray"
-   边框宽度：
-   app:border_width="1dp"
-   正常显示时的颜色：
-   app:normal_color="@android:color/holo_blue_light"
-   点击显示颜色：
-   app:press_color="@android:color/holo_blue_dark"
-   弯曲弧度：
-   app:radius="20dp"
+边框颜色：
+app:border_color="@android:color/darker_gray"
+边框宽度：
+app:border_width="1dp"
+正常显示时的颜色：
+app:normal_color="@android:color/holo_blue_light"
+点击显示颜色：
+app:press_color="@android:color/holo_blue_dark"
+弯曲弧度：
+app:radius="20dp"
 ```
 *java代码中使用(暂无)
 
 ```java
-    设置颜色：
-    imageView.setColor(@ColorRes int normalColor,@ColorRes int pressColor);
+设置颜色：
+imageView.setColor(@ColorRes int normalColor,@ColorRes int pressColor);
 ```
