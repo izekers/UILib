@@ -7,4 +7,12 @@
         </attr>
         <attr name="round_size" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="ColorButton">
+        <attr name="normal_color" format="color"/>
+        <attr name="select_color" format="color"/>
+        <attr name="radius" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        <attr name="border_width" format="dimension"/>
+    </declare-styleable>
 </resources>

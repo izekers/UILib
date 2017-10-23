@@ -21,7 +21,7 @@ import com.zoker.lib.R;
  *
  * Created by Zoker on 2017/9/28.
  */
-public class MaterialImageView extends android.support.v7.widget.AppCompatImageView {
+public class MaterialImageView extends ImageView{
     private final String TAG = MaterialImageView.class.getSimpleName();
     public static final int MODE_CIRCLE = 0;
     public static final int MODE_NORMAL = -1;

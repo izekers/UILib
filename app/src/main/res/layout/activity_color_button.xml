@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zoker.uilib.ColorButtonActivity">
+
+    <com.zoker.lib.widght.ColorButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:normal_color="@android:color/holo_red_light"
+        app:select_color="@android:color/holo_red_dark"
+        android:text="红色"/>
+
+    <com.zoker.lib.widght.ColorButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:radius="10dp"
+        app:normal_color="@android:color/holo_red_light"
+        app:select_color="@android:color/holo_red_dark"
+        android:text="红色加10弧度"/>
+
+    <com.zoker.lib.widght.ColorButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:normal_color="@android:color/holo_blue_light"
+        app:select_color="@android:color/holo_blue_dark"
+        android:text="蓝色"/>
+
+    <com.zoker.lib.widght.ColorButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:border_color="@android:color/darker_gray"
+        app:border_width="1dp"
+        app:normal_color="@android:color/holo_blue_light"
+        app:select_color="@android:color/holo_blue_dark"
+        android:text="蓝色加边"/>
+
+    <com.zoker.lib.widght.ColorButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:border_color="@android:color/darker_gray"
+        app:border_width="1dp"
+        app:normal_color="@android:color/holo_blue_light"
+        app:select_color="@android:color/holo_blue_dark"
+        app:radius="10dp"
+        android:text="蓝色加边加10弧度"/>
+
+    <com.zoker.lib.widght.ColorButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        app:border_color="@android:color/darker_gray"
+        app:border_width="1dp"
+        app:normal_color="@android:color/holo_blue_light"
+        app:select_color="@android:color/holo_blue_dark"
+        app:radius="20dp"
+        android:text="蓝色加边加20弧度"/>
+</LinearLayout>

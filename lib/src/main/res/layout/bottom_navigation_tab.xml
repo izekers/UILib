@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@id/tab_title"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:textSize="15sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#333"
+        android:maxLines="1"
+        android:text="标题"/>
+
+    <ImageView
+        android:id="@id/tab_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/popmenu_border"/>
+</LinearLayout>

@@ -6,7 +6,7 @@ UILib
 现有控件
 ---
 * MaterialImageView:多模式图形显示控件，支持圆形图，圆角框
-
+* ColorButton:颜色修改按钮
 
 控件介绍
 ---
