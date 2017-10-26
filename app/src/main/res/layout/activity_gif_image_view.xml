@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.zoker.uilib.MainActivity">
+    tools:context="com.zoker.uilib.GifImageViewActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_list"
+    <com.zoker.lib.image.gifImage.GifImageView
+        android:id="@+id/imageview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff" />
+        android:layout_height="match_parent" />
 </LinearLayout>

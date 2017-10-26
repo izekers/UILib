@@ -7,6 +7,9 @@ UILib
 ---
 * MaterialImageView:多模式图形显示控件，支持圆形边框，圆角框
 * ColorButton:颜色修改按钮
+* LargeImage:可放大缩小图片的控件
+* GalleryView:画廊View,控件式的画廊效果，可以自定义为画廊Activity，之后将提供默认的GalleryActivity
+* GifImageView:可以使用动画的ImageView，这里暂时实现了帧动画
 
 开始使用UILib
 ---
@@ -69,3 +72,12 @@ app:radius="20dp"
 设置颜色：
 imageView.setColor(@ColorRes int normalColor,@ColorRes int pressColor);
 ```
+
+###LargeImageView
+
+###GalleryView
+
+*已知的一些bug
+未滑动完全
+
+###GifImageView

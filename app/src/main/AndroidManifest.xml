@@ -20,7 +20,10 @@
         <activity android:name=".CameraActivity" />
         <activity android:name=".BottomNavigationActivity" />
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".ColorButtonActivity"></activity>
+        <activity android:name=".ColorButtonActivity" />
+        <activity android:name=".RecyclerActivity" />
+        <activity android:name=".LargeImageActivity" />
+        <activity android:name=".GifImageViewActivity"></activity>
     </application>
 
 </manifest>
