@@ -21,44 +21,25 @@ import com.zoker.uilib.fragment.SimpleFragment;
 public class BottomNavigationActivity extends AppCompatActivity {
     BottomNavigationBar tabLayout;
     ViewPager viewPager;
+    private FragmentManager fm;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
-        tabLayout=(BottomNavigationBar)findViewById(R.id.tablayout);
-        viewPager=(ViewPager) findViewById(R.id.viewpage);
+        tabLayout = (BottomNavigationBar) findViewById(R.id.tablayout);
+        tabLayout.setTabLayout(R.layout.bottom_navigation_tab2);
+        viewPager = (ViewPager) findViewById(R.id.viewpage);
         initFragment();
-        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
-        tabLayout.setupWithViewPager(viewPager);
     }
 
-    public void initFragment(){
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("1"));
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("2"));
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("3"));
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("4"));
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("5"));
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("5"));
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("5"));
-        tabLayout.addItem(new BottomNavigationItem().fragment(new SimpleFragment()).icon(R.drawable.nor_icon,R.drawable.select).title("5"));
-    }
-
-
-    public class ViewPagerAdapter extends FragmentPagerAdapter {
-
-        public ViewPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return tabLayout.getTabItem(position).getFragment();
-        }
-
-        @Override
-        public int getCount() {
-            return tabLayout.getItemSize();
-        }
+    public void initFragment() {
+        BottomNavigationBar.Worker worker = tabLayout.setup(viewPager, getSupportFragmentManager());
+        worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("首页"));
+        worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("第二页"));
+        worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("第三页"));
+        worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("第四页"));
+        worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("第五页"));
+        worker.work();
     }
 }

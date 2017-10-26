@@ -8,6 +8,15 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@id/tab_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tab_item_icon"
+        android:layout_centerHorizontal="true"
+        android:textColor="#333"
+        android:textSize="13sp"
+        tools:text="Medium Text" />
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -30,14 +39,4 @@
             android:visibility="gone" />
 
     </RelativeLayout>
-
-    <TextView
-        android:id="@id/tab_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tab_item_icon"
-        android:layout_centerHorizontal="true"
-        android:textColor="#333"
-        android:textSize="13sp"
-        tools:text="Medium Text" />
 </LinearLayout><!--</RelativeLayout>-->

@@ -8,12 +8,12 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpage"
         android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        android:layout_height="0sp"
+        android:layout_weight="1"/>
 
     <com.zoker.lib.widght.bottomNavigation.BottomNavigationBar
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/CustomTab"
-        />
+        android:visibility="visible"/>
 </LinearLayout>

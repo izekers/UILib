@@ -1,4 +1,4 @@
-package com.zoker.lib.widght;
+package com.zoker.lib.widght.bottomNavigation;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,11 +11,11 @@ import java.util.List;
  * 简单使用版的FragmentPagerAdapter
  * Created by Zerkes on 2017/1/9.
  */
-public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
+public class BottomNavigationFragmentPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragments = new ArrayList<>();
     private final List<String> mFragmentTitles = new ArrayList<>();
 
-    public SimpleFragmentPagerAdapter(FragmentManager fm) {
+    public BottomNavigationFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

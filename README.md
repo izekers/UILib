@@ -10,6 +10,7 @@ UILib
 * LargeImage:可放大缩小图片的控件
 * GalleryView:画廊View,控件式的画廊效果，可以自定义为画廊Activity，之后将提供默认的GalleryActivity
 * GifImageView:可以使用动画的ImageView，这里暂时实现了帧动画
+* BottomNavigationBar:底部导航栏
 
 开始使用UILib
 ---
@@ -81,3 +82,20 @@ imageView.setColor(@ColorRes int normalColor,@ColorRes int pressColor);
 未滑动完全
 
 ###GifImageView
+gif推荐还是使用android-gif-drawable，其他控件包括Glide的gif都容易导致oom，而android-gif=drawable并没有此问题，底层解码使用C实现，极大的提高了解码效率，同时很大程度上避免了OOM现象出现。
+
+###BottomNavigationBar：底部导航栏
+
+```java
+//绑定ViewPager
+BottomNavigationBar.Worker worker = bottomNavigationBar.setup(viewPager, getSupportFragmentManager());
+worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("首页"));
+worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("第二页"));
+worker.addItem(new BottomNavigationItem(getSupportFragmentManager()).fragment(new SimpleFragment()).icon(R.drawable.nor_icon, R.drawable.select).title("第三页"));
+//仅当调用work的时候绑定数据
+worker.work();
+
+//自定义tab样式，注意：image使用@id/tab_img，title使用@id/tab_title
+bottomNavigationBar.setTabLayout(@LayoutRes int tab_layout);
+```
+

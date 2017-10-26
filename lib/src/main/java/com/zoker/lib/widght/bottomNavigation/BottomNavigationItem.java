@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.annotation.DrawableRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 import com.zoker.lib.util.SelectorUtils;
 
@@ -17,7 +18,10 @@ public class BottomNavigationItem {
     private String title;
     private int normal_icon;
     private int select_icon;
-
+    FragmentManager fm;
+    public BottomNavigationItem(FragmentManager fm){
+        this.fm = fm;
+    }
 
     public Fragment getFragment() {
         return fragment;

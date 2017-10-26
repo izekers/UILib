@@ -1,6 +1,8 @@
 package com.zoker.lib.widght.bottomNavigation;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.LayoutRes;
@@ -17,8 +19,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zoker.lib.R;
+import com.zoker.lib.widght.SimpleFragmentPagerAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/10/19.
@@ -28,24 +32,44 @@ public class BottomNavigationBar extends TabLayout {
     private ArrayList<BottomNavigationItem> items;
     private int tab_layout = -1;
     private static final int DEFAULT_LAYOUT = R.layout.bottom_navigation_tab;
+    private BottomNavigationFragmentPagerAdapter adapter;
+    private ViewPager viewPager;
+    private FragmentManager fm;
+
 
     public BottomNavigationBar(Context context) {
         super(context);
-        init();
+        initView(null);
     }
 
     public BottomNavigationBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        initView(attrs);
     }
 
     public BottomNavigationBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        initView(attrs);
     }
 
-    private void init() {
-        items = new ArrayList<>();
+    private void initView(AttributeSet attr) {
+        if (attr != null) {
+            TypedArray typedArray = getContext().obtainStyledAttributes(attr, R.styleable.BottomNavigationBar);
+            typedArray.recycle();
+        }
+        setPadding(0, getPaddingTop() + 10, 0, getPaddingBottom() + 10);
+        setSelectedTabIndicatorHeight(0);
+        setBackgroundColor(Color.parseColor("#f8f8f8"));
+    }
+
+    public Worker setup(ViewPager viewPager, FragmentManager fm) {
+        this.viewPager = viewPager;
+        this.fm = fm;
+        this.items = new ArrayList<>();
+        this.adapter = new BottomNavigationFragmentPagerAdapter(fm);
+        this.viewPager.setAdapter(adapter);
+        setupWithViewPager(this.viewPager);
+        return new Worker();
     }
 
     @Override
@@ -77,27 +101,11 @@ public class BottomNavigationBar extends TabLayout {
             return new TabViewHolder(LayoutInflater.from(getContext()).inflate(tab_layout, this, false));
     }
 
-    public void addItem(BottomNavigationItem item) {
-        items.add(item);
-        Tab tab = this.newTab();
-        TabViewHolder tabViewHolder = getNewsTabView();
-        tab.setCustomView(tabViewHolder.rootView);
-        tab.setTag(tabViewHolder);
-        tabViewHolder.setTitle(item.getTitle());
-//        tabViewHolder.iconView.setImageResource(R.drawable.selector);
-        tabViewHolder.setIcon(item.getIcon(getContext()));
-        this.addTab(tab);
-    }
-
     public void setTabLayout(@LayoutRes int tab_layout) {
         if (tab_layout == 0)
             this.tab_layout = -1;
         else
             this.tab_layout = tab_layout;
-    }
-
-    public void setTextColor() {
-
     }
 
     public class TabViewHolder {
@@ -122,4 +130,33 @@ public class BottomNavigationBar extends TabLayout {
         }
     }
 
+    public class Worker {
+        List<BottomNavigationItem> wokerItem = new ArrayList<>();
+        private Worker(){};
+        public Worker addItem(BottomNavigationItem item) {
+            wokerItem.add(item);
+            return this;
+        }
+
+        public void work() {
+            for (int i = 0; i < wokerItem.size(); i++) {
+                items.add(wokerItem.get(i));
+                adapter.addFragment(wokerItem.get(i).getFragment(), items.get(i).getTitle());
+            }
+
+            for (int i = 0, size = getTabCount(); i < size; i++) {
+                TabLayout.Tab tab = getTabAt(i);
+                if (tab != null) {
+                    TabViewHolder tabViewHolder = (TabViewHolder) tab.getTag();
+                    if (tabViewHolder == null)
+                        tabViewHolder = getNewsTabView();
+
+                    tab.setCustomView(tabViewHolder.rootView);
+                    tab.setTag(tabViewHolder);
+                    tabViewHolder.setTitle(items.get(i).getTitle());
+                    tabViewHolder.setIcon(items.get(i).getIcon(getContext()));
+                }
+            }
+        }
+    }
 }

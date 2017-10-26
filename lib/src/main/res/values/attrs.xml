@@ -20,4 +20,7 @@
     <declare-styleable name="GifImageView">
 
     </declare-styleable>
+    <declare-styleable name="BottomNavigationBar">
+
+    </declare-styleable>
 </resources>
