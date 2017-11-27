@@ -1,0 +1,11 @@
+### 官方差值器
+* AnticipateInterpolator            起点1次回弹
+* OvershootInterpolator             终点1次回弹
+* AnticipateOvershootInterpolator   起点终点1次回弹
+* AccelerateDecelerateInterpolator  起点加速终点减速
+* AcceletateInterpolator            起点加速
+* DecelerateInterpolator            终点加速
+* BounceInterpolator                重力物理
+* CycleInterpolator                 重复
+* LinearInterpolator                直线
+* PathInterpolator                  路线(这个感觉很复杂)

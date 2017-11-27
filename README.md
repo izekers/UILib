@@ -52,7 +52,7 @@ imageView.setMode(MaterialImageView.MODE_CIRCLE); (MaterialImageView.MODE_CIRCLE
 ```
 
 
-### ColorButton
+ColorButton
 ---
 
 *资源文件中使用
@@ -76,11 +76,11 @@ imageView.setColor(@ColorRes int normalColor,@ColorRes int pressColor);
 ```
 
 
-### LargeImageView
+LargeImageView
 ---
 
 
-### GalleryView
+GalleryView
 ---
 
 
@@ -89,13 +89,13 @@ imageView.setColor(@ColorRes int normalColor,@ColorRes int pressColor);
 
 
 
-### GifImageView
+GifImageView
 ---
 gif推荐还是使用android-gif-drawable，其他控件包括Glide的gif都容易导致oom，而android-gif=drawable并没有此问题，底层解码使用C实现，极大的提高了解码效率，同时很大程度上避免了OOM现象出现。
 
 
 
-### BottomNavigationBar：底部导航栏
+BottomNavigationBar：底部导航栏
 ---
 
 ```java
