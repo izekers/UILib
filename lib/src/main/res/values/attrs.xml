@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="MaterialImageView">
-        <attr name="mode">
+        <attr name="material_mode">
             <enum name="circle" value="0"/>
             <enum name="rounded_corners" value="1"/>
             <enum name="normal" value="-1"/>

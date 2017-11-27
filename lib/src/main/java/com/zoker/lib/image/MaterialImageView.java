@@ -53,7 +53,7 @@ public class MaterialImageView extends android.support.v7.widget.AppCompatImageV
 
     public void initView(AttributeSet attributeSet) {
         TypedArray a = getContext().obtainStyledAttributes(attributeSet, R.styleable.MaterialImageView);
-        mode = a.getInt(R.styleable.MaterialImageView_mode, MODE_NORMAL);
+        mode = a.getInt(R.styleable.MaterialImageView_material_mode, MODE_NORMAL);
         round_size = a.getInteger(R.styleable.MaterialImageView_round_size, RoundDefaultSize);
         a.recycle();
 
