@@ -1,13 +1,8 @@
 package com.zoker.lib.animation.translation;
 
 import android.animation.Animator;
-import android.animation.ArgbEvaluator;
-import android.animation.PointFEvaluator;
 import android.animation.ValueAnimator;
 import android.graphics.Point;
-import android.graphics.PointF;
-import android.graphics.drawable.ColorDrawable;
-import android.support.animation.SpringAnimation;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.transition.Transition;

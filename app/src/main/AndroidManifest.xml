@@ -23,7 +23,8 @@
         <activity android:name=".ColorButtonActivity" />
         <activity android:name=".RecyclerActivity" />
         <activity android:name=".LargeImageActivity" />
-        <activity android:name=".GifImageViewActivity"></activity>
+        <activity android:name=".GifImageViewActivity" />
+        <activity android:name=".TranslationActivity"></activity>
     </application>
 
 </manifest>

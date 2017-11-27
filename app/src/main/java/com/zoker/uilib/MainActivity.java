@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 new ModelBean("多颜色按钮", this, ColorButtonActivity.class),
                 new ModelBean("图片放大控件", this, LargeImageActivity.class),
                 new ModelBean("gif图片控件", this, GifImageViewActivity.class),
+                new ModelBean("动画",this,TranslationActivity.class),
         };
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_list);
