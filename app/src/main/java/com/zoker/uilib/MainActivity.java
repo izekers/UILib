@@ -1,19 +1,19 @@
 package com.zoker.uilib;
 
-import android.app.Activity;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zoker.lib.image.gifImage.GifImageView;
 import com.zoker.lib.recycle.ItemDecoration.LineItemDecoration;
 import com.zoker.uilib.bean.ModelBean;
 import com.zoker.uilib.viewholder.MainViewHolder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ModelBean[] datas;
@@ -31,8 +31,11 @@ public class MainActivity extends AppCompatActivity {
                 new ModelBean("图片放大控件", this, LargeImageActivity.class),
                 new ModelBean("gif图片控件", this, GifImageViewActivity.class),
                 new ModelBean("动画",this,TranslationActivity.class),
+                new ModelBean("ListFragment",this,ListFragmentActivity.class),
+                new ModelBean("SimpleListFragment",this,SimpleListActivity.class),
+                new ModelBean("测试使用ConstraintLayout布局",this,ConstraintActivity.class),
         };
-
+        List<ModelBean> modelBeanList = Arrays.asList(datas);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         recyclerView.addItemDecoration(new LineItemDecoration(10));
