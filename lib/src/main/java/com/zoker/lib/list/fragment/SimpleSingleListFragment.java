@@ -1,4 +1,4 @@
-package com.zoker.lib.fragment.list;
+package com.zoker.lib.list.fragment;
 
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.LinearLayoutManager;

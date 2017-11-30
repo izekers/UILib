@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">UILib</string>
+    <string name="app_name">UI库</string>
     <string name="title_activity_list_fragment">ListFragmentActivity</string>
     <string name="title_activity_simple_list">SimpleListActivity</string>
     <string name="title_activity_constraint">ConstraintActivity</string>
+    <string name="title_activity_flow_layout">FlowLayoutActivity</string>
 </resources>

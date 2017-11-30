@@ -1,9 +1,8 @@
-package com.zoker.lib.fragment.interfaces;
+package com.zoker.lib.list.interfaces;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

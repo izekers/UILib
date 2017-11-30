@@ -1,4 +1,4 @@
-package com.zoker.lib.fragment.list;
+package com.zoker.lib.list.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -9,9 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.zoker.lib.fragment.interfaces.ITypesListFragment;
+import com.zoker.lib.list.interfaces.ITypesListFragment;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**

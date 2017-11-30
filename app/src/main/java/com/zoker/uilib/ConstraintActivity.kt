@@ -1,16 +1,12 @@
 package com.zoker.uilib
 
 import android.os.Bundle
-import android.support.annotation.LayoutRes
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.zoker.lib.fragment.list.SimpleSingleListFragment
-import com.zoker.lib.fragment.list.SingleListFragment
+import com.zoker.lib.list.fragment.SingleListFragment
 import com.zoker.uilib.bean.ModelBean
 import com.zoker.uilib.viewholder.MainViewHolder
 
@@ -48,7 +44,7 @@ class ConstraintActivity : AppCompatActivity() {
         listfragment.addData(Arrays.asList(*datas!!));
     }
 
-    class ConstraintFragment : SingleListFragment<ModelBean,MainViewHolder>(){
+    class ConstraintFragment : SingleListFragment<ModelBean, MainViewHolder>(){
         override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
             holder.nameView.setText(getItemData(position).title);
             holder.nameView.setOnClickListener { startActivity(getItemData(holder.getAdapterPosition()).getIntent()) }

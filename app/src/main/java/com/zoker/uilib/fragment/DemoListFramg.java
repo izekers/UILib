@@ -3,7 +3,7 @@ package com.zoker.uilib.fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
-import com.zoker.lib.fragment.list.TypeListFragment;
+import com.zoker.lib.list.fragment.TypeListFragment;
 import com.zoker.uilib.bean.Demo1;
 import com.zoker.uilib.bean.Demo2;
 import com.zoker.uilib.viewholder.Demo1ViewHolder;

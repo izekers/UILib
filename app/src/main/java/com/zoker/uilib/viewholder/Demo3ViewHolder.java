@@ -4,10 +4,8 @@ import android.support.annotation.LayoutRes;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zoker.lib.fragment.list.SimpleSingleListFragment;
-import com.zoker.lib.fragment.list.TypeListFragment;
+import com.zoker.lib.list.fragment.SimpleSingleListFragment;
 import com.zoker.uilib.R;
-import com.zoker.uilib.bean.Demo2;
 import com.zoker.uilib.bean.Demo3;
 
 /**

@@ -1,8 +1,6 @@
-package com.zoker.lib.fragment.interfaces;
+package com.zoker.lib.list.interfaces;
 
 import android.support.v7.widget.RecyclerView;
-
-import java.util.Date;
 
 /**
  * Created by zoker on 2017/11/28.

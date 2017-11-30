@@ -7,11 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zoker.lib.recycle.ItemDecoration.LineItemDecoration;
+import com.zoker.lib.list.recycle.ItemDecoration.LineItemDecoration;
 import com.zoker.uilib.bean.ModelBean;
 import com.zoker.uilib.viewholder.MainViewHolder;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
                 new ModelBean("多颜色按钮", this, ColorButtonActivity.class),
                 new ModelBean("图片放大控件", this, LargeImageActivity.class),
                 new ModelBean("gif图片控件", this, GifImageViewActivity.class),
-                new ModelBean("动画",this,TranslationActivity.class),
-                new ModelBean("ListFragment",this,ListFragmentActivity.class),
-                new ModelBean("SimpleListFragment",this,SimpleListActivity.class),
-                new ModelBean("测试使用ConstraintLayout布局",this,ConstraintActivity.class),
+                new ModelBean("动画", this, TranslationActivity.class),
+                new ModelBean("ListFragment", this, ListFragmentActivity.class),
+                new ModelBean("SimpleListFragment", this, SimpleListActivity.class),
+                new ModelBean("测试使用ConstraintLayout布局", this, ConstraintActivity.class),
+                new ModelBean("流式布局", this, FlowLayoutActivity.class)
         };
-        List<ModelBean> modelBeanList = Arrays.asList(datas);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        recyclerView.addItemDecoration(new LineItemDecoration(10));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.addItemDecoration(new LineItemDecoration(1));
         recyclerView.setAdapter(new Adapter());
     }
 

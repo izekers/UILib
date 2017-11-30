@@ -1,12 +1,10 @@
 package com.zoker.uilib.viewholder;
 
 import android.support.annotation.LayoutRes;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zoker.lib.fragment.interfaces.ITypesListFragment;
-import com.zoker.lib.fragment.list.TypeListFragment;
+import com.zoker.lib.list.fragment.TypeListFragment;
 import com.zoker.uilib.R;
 import com.zoker.uilib.bean.Demo1;
 

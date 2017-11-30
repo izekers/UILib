@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.zoker.lib.fragment.list.SimpleSingleListFragment;
+import com.zoker.lib.list.fragment.SimpleSingleListFragment;
 import com.zoker.uilib.bean.Demo3;
 import com.zoker.uilib.viewholder.Demo3ViewHolder;
 

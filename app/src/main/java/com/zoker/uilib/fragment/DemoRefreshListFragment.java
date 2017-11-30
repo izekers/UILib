@@ -3,7 +3,7 @@ package com.zoker.uilib.fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.zoker.lib.fragment.list.SingleRefreshListFragment;
+import com.zoker.lib.list.fragment.SingleRefreshListFragment;
 
 import java.util.List;
 

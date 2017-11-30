@@ -6,7 +6,8 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 /**
- * Created by Administrator on 2017/10/11.
+ * 尺寸工具
+ * Created by zoker on 2017/10/11.
  */
 
 public class DisplayUtil {

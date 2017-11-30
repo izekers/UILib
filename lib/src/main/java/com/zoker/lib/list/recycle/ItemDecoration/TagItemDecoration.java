@@ -1,4 +1,4 @@
-package com.zoker.lib.recycle.ItemDecoration;
+package com.zoker.lib.list.recycle.ItemDecoration;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -13,14 +13,14 @@ import android.view.View;
  * Created by Administrator on 2017/10/24.
  */
 
-public class SectionItemDecoration extends RecyclerView.ItemDecoration {
+public class TagItemDecoration extends RecyclerView.ItemDecoration {
     private Paint paint;
 
     private int devideWidth;
     private int devidePaddingStart, devidePaddingEnd;
 
-    public SectionItemDecoration(int tagHeight, int tagWidth, Bitmap bitmap) {
-        
+    public TagItemDecoration(int tagHeight, int tagWidth, Bitmap bitmap) {
+
     }
 
 

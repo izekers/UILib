@@ -3,6 +3,12 @@ UILib
 
 `UILib`这个仓库将存放平时我所书写的一些UI控件,并定期发布版本，便于多项目重复利用
 
+计划
+---
+* WebActivityView：一个现有的万能WebViewActivity
+* 一个包含上下拉刷新的快速开发Fragment
+
+
 现有控件
 ---
 * MaterialImageView:多模式图形显示控件，支持圆形边框，圆角框
@@ -11,6 +17,11 @@ UILib
 * GalleryView:画廊View,控件式的画廊效果，可以自定义为画廊Activity，之后将提供默认的GalleryActivity
 * GifImageView:可以使用动画的ImageView，这里暂时实现了帧动画
 * BottomNavigationBar:底部导航栏
+* FlowLayout:流式布局
+* SimpleSingleListFragment：快捷单类型列表开发，简单使用版，ViewHolder需要继承SimpleSingleListFragment.SimpleViewHolder
+* SingleListFragment：快捷单类型列表开发，自由使用ViewHolder
+* TypeListFragment：快捷多类型列表开发，ViewHolder需要继承TypeListFragment.TypeViewHolder
+
 
 开始使用UILib
 ---

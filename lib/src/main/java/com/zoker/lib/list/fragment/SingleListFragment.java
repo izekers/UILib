@@ -1,4 +1,4 @@
-package com.zoker.lib.fragment.list;
+package com.zoker.lib.list.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.zoker.lib.fragment.interfaces.IListFragment;
+import com.zoker.lib.list.interfaces.IListFragment;
 
 import java.util.List;
 

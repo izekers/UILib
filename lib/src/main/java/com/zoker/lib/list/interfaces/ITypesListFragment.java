@@ -1,12 +1,6 @@
-package com.zoker.lib.fragment.interfaces;
+package com.zoker.lib.list.interfaces;
 
-import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import java.util.HashMap;
 
 /**
  * Created by Administrator on 2017/11/28.

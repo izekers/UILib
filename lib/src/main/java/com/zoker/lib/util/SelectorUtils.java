@@ -5,7 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 
 /**
- * Created by Administrator on 2017/10/19.
+ * 选择图片工具
+ * Created by zoker on 2017/10/19.
  */
 
 public class SelectorUtils {

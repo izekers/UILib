@@ -1,11 +1,10 @@
-package com.zoker.lib.fragment.list;
+package com.zoker.lib.list.fragment;
 
 import android.os.AsyncTask;
 import android.support.annotation.MainThread;
 import android.util.Log;
 
 import java.util.Collection;
-import java.util.Observable;
 
 /**
  * Created by Administrator on 2017/11/28.
