@@ -4,7 +4,7 @@ import android.support.annotation.LayoutRes;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zoker.lib.list.fragment.TypeListFragment;
+import com.zoker.lib.list.SimpleViewHolder;
 import com.zoker.uilib.R;
 import com.zoker.uilib.bean.Demo1;
 
@@ -12,7 +12,7 @@ import com.zoker.uilib.bean.Demo1;
  * Created by Administrator on 2017/11/28.
  */
 
-public class Demo1ViewHolder extends TypeListFragment.TypeViewHolder<Demo1> {
+public class Demo1ViewHolder extends SimpleViewHolder<Demo1> {
     private static final int layout_res = R.layout.demo_txt;
 
     public Demo1ViewHolder(ViewGroup parent) {

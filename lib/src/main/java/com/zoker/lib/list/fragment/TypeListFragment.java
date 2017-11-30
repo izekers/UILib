@@ -1,7 +1,6 @@
 package com.zoker.lib.list.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import com.zoker.lib.list.SimpleViewHolder;
 import com.zoker.lib.list.interfaces.ITypesListFragment;
 
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
  * Created by zoker on 2017/11/28.
  */
 
-public abstract class TypeListFragment extends Fragment implements ITypesListFragment<TypeListFragment.TypeViewHolder> {
+public abstract class TypeListFragment extends Fragment implements ITypesListFragment<SimpleViewHolder> {
     private RecyclerView rootView;
     private TypeAdapter adapter;
     private List<Object> mData;
@@ -39,14 +40,14 @@ public abstract class TypeListFragment extends Fragment implements ITypesListFra
         rootView.setAdapter(adapter = new TypeAdapter());
     }
 
-    public class TypeAdapter extends RecyclerView.Adapter<TypeViewHolder> {
+    public class TypeAdapter extends RecyclerView.Adapter<SimpleViewHolder> {
         @Override
-        public TypeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return TypeListFragment.this.onCreateViewHolder(parent, viewType);
         }
 
         @Override
-        public void onBindViewHolder(TypeViewHolder holder, int position) {
+        public void onBindViewHolder(SimpleViewHolder holder, int position) {
             TypeListFragment.this.onBindViewHolder(holder, position);
         }
 
@@ -103,7 +104,7 @@ public abstract class TypeListFragment extends Fragment implements ITypesListFra
     }
 
     @Override
-    public void onBindViewHolder(TypeViewHolder holder, int position) {
+    public void onBindViewHolder(SimpleViewHolder holder, int position) {
         if (checkData(position))
             holder.setData(getItemData(position));
     }
@@ -122,19 +123,5 @@ public abstract class TypeListFragment extends Fragment implements ITypesListFra
 
     public List<Object> getmData() {
         return mData;
-    }
-
-    public static abstract class TypeViewHolder<data> extends RecyclerView.ViewHolder {
-
-        public TypeViewHolder(ViewGroup parent, @LayoutRes int layoutRes) {
-            super(LayoutInflater.from(parent.getContext()).inflate(layoutRes, parent, false));
-
-        }
-
-        public TypeViewHolder(View itemView) {
-            super(itemView);
-        }
-
-        public abstract void setData(data data);
     }
 }
