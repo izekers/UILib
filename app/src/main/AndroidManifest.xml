@@ -29,14 +29,6 @@
         <activity android:name=".GifImageViewActivity" />
         <activity android:name=".TranslationActivity" />
         <activity
-            android:name=".ListFragmentActivity"
-            android:label="@string/title_activity_list_fragment"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SimpleListActivity"
-            android:label="@string/title_activity_simple_list"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".ConstraintActivity"
             android:label="@string/title_activity_constraint"
             android:theme="@style/AppTheme.NoActionBar" />

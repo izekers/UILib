@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
                 new ModelBean("图片放大控件", this, LargeImageActivity.class),
                 new ModelBean("gif图片控件", this, GifImageViewActivity.class),
                 new ModelBean("动画", this, TranslationActivity.class),
-                new ModelBean("ListFragment", this, ListFragmentActivity.class),
-                new ModelBean("SimpleListFragment", this, SimpleListActivity.class),
                 new ModelBean("测试使用ConstraintLayout布局", this, ConstraintActivity.class),
                 new ModelBean("流式布局", this, FlowLayoutActivity.class)
         };
