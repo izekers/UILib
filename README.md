@@ -122,6 +122,25 @@ worker.work();
 bottomNavigationBar.setTabLayout(@LayoutRes int tab_layout);
 ```
 
+FlowLayout:流式布局
+---
+*资源文件中使用
+```xml
+app:flow_gravity=" "(center:居中排版 left:从左到右排版 right:从右到左排版 bottom:从下到上排版)
+```
+*java代码中使用
+
+```java
+使用规则跟普通的ViewGroup一样即可
+
+ /**
+     * 设置最多显示行数
+     * @param maxLines
+    */
+ public void setMaxLines(int maxLines)
+```
+
+
 # 工具类介绍
 
 ScrollerHelper：滑动实现助手
