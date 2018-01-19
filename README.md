@@ -18,6 +18,7 @@ UILib
 * GifImageView:可以使用动画的ImageView，这里暂时实现了帧动画
 * BottomNavigationBar:底部导航栏
 * FlowLayout:流式布局
+* FoldingLayout:折叠布局，暂只支持两个子布局
 
 工具类
 --
@@ -138,6 +139,31 @@ app:flow_gravity=" "(center:居中排版 left:从左到右排版 right:从右到
      * @param maxLines
     */
  public void setMaxLines(int maxLines)
+```
+
+Folding:折叠布局
+---
+*资源文件中使用
+```xml
+   <com.zoker.lib.widght.FoldingLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bottomView"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="topView"
+            android:background="#321358"
+            android:paddingTop="10dp"
+            android:clickable="true"
+            android:paddingBottom="10dp"/>
+    </com.zoker.lib.widght.FoldingLayout>
 ```
 
 
