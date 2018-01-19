@@ -18,10 +18,10 @@ UILib
 * GifImageView:可以使用动画的ImageView，这里暂时实现了帧动画
 * BottomNavigationBar:底部导航栏
 * FlowLayout:流式布局
-* SimpleSingleListFragment：快捷单类型列表开发，简单使用版，ViewHolder需要继承SimpleSingleListFragment.SimpleViewHolder
-* SingleListFragment：快捷单类型列表开发，自由使用ViewHolder
-* TypeListFragment：快捷多类型列表开发，ViewHolder需要继承TypeListFragment.TypeViewHolder
 
+工具类
+--
+* ScrollerHelper:由ViewDrawHelper启发，用于快速开发自定义View的滚动效果时使用
 
 开始使用UILib
 ---
@@ -40,7 +40,7 @@ repositories {
 * Step 2. 在你的app build.gradle 的 dependencies 中添加依赖
 ```groovy
 dependencies {
-	compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+	compile 'com.github.izekers:UILib:v1.7.1'
 }
 ```
 
@@ -66,7 +66,7 @@ imageView.setMode(MaterialImageView.MODE_CIRCLE); (MaterialImageView.MODE_CIRCLE
 ColorButton
 ---
 
-*资源文件中使用
+* 资源文件中使用
 ```xml
 边框颜色：
 app:border_color="@android:color/darker_gray"
@@ -79,7 +79,7 @@ app:press_color="@android:color/holo_blue_dark"
 弯曲弧度：
 app:radius="20dp"
 ```
-*java代码中使用(暂无)
+* java代码中使用(暂无)
 
 ```java
 设置颜色：
@@ -95,7 +95,7 @@ GalleryView
 ---
 
 
-*已知的一些bug
+* 已知的一些bug
 未滑动完全
 
 
@@ -122,3 +122,99 @@ worker.work();
 bottomNavigationBar.setTabLayout(@LayoutRes int tab_layout);
 ```
 
+# 工具类介绍
+
+ScrollerHelper：滑动实现助手
+---
+
+## 使用方法
+1. 创建实例对象
+```java
+ScrollerHelper scrollerHelper = ScrollerHelper.create(View view, ScrollerHelper.Callback callback);
+```
+
+2. 根据实现ScrollerHelper.Callback抽象类
+```java
+
+    public abstract static class Callback {
+        /**
+         * 松开手后的操作
+         *
+         * @param scrollX View滑动到的点 x坐标 = view.getScrollX();
+         * @param scrollY View滑动到的点 y坐标 = view.getScrollY();
+         */
+        public void onRelease(float scrollX, float scrollY) {
+        }
+
+
+        /**
+         * 滑动事件触发
+         *
+         * @param scrollX View滑动到的点 x坐标 = view.getScrollX();
+         * @param dx       水平线上滑动的距离
+         */
+        public void onHorizontalMove(float scrollX, float dx) {
+        }
+
+        /**
+         * 滑动事件触发
+         *
+         * @param scrollY View滑动到的点 y坐标 = view.getScrollY();
+         * @param dy       竖直线上滑动的距离
+         */
+        public void onVerticalMove(float scrollY, float dy) {
+        }
+
+        /**
+         * 判断组件是否可以横向移动
+         *
+         * @param scrollX 当前View滑动到的点 x坐标 = view.getScrollX();
+         * @param diff    手指在屏幕上滑动的距离
+         * @return
+         */
+        public boolean isHorizontalMove(float scrollX, float diff) {
+            return false;
+        }
+
+        /**
+         * Y
+         * 判断组件是否可以横向移动
+         *
+         * @param scrollY 当前View滑动到的点 y坐标 = view.getScrollY();
+         * @param diff    手指在屏幕上滑动的距离
+         * @return
+         */
+        public boolean isVerticalMove(float scrollY, float diff) {
+            return false;
+        }
+    }
+```
+
+3. 在自定义类的相应方法中调用以下方法
+```java
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return scrollerHelper.onInterceptTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return scrollerHelper.onTouchEvent(event);
+    }
+
+    @Override
+    public void computeScroll() {
+        scrollerHelper.computeScroll();
+    }
+```
+
+
+4. Helper类提供的一些方法
+```java
+    /**
+     * 只允许在Callback.onRelease()回调中使用，View在松开手后会自动滚动到响应位置
+     * @param endx  结束点x
+     * @param endy  结束点y
+     */
+    public void autoMove(int endx, int endy);
+```
