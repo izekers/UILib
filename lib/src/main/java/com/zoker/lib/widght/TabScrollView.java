@@ -27,13 +27,11 @@ public class TabScrollView extends LinearLayout {
     private NestedScrollView scrollView;
     private LinearLayout rootView;
     private List<TabLayout.Tab> tabs = new ArrayList<>();
-    private String[] datas;
-
-
-    private List<View> indexTopViews = new ArrayList<>();
-    private List<View> indexBottomViews = new ArrayList<>();
-
+    private List<View> itemViews = new ArrayList<>();
     private int lastIndex = 0;
+    private boolean hasAddSpace = false;
+    private int bottomSpace = 0;
+    private View bottomspaceView;
 
     public TabScrollView(Context context) {
         super(context);
@@ -72,9 +70,9 @@ public class TabScrollView extends LinearLayout {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int index = tabs.indexOf(tab);
-                if (indexTopViews.size() > index) {
+                if (itemViews.size() > index) {
                     lastIndex = index;
-                    scrollView.scrollTo(0, (int) indexTopViews.get(index).getY());
+                    scrollView.scrollTo(0, (int) itemViews.get(index).getY());
                 }
             }
 
@@ -98,13 +96,13 @@ public class TabScrollView extends LinearLayout {
                 } else {
                     if (oldScrollY > scrollY) { //下滑
                         if (lastIndex != 0) {
-                            if (indexTopViews.get(lastIndex - 1).getY() > scrollY) {
+                            if (itemViews.get(lastIndex - 1).getY() > scrollY) {
                                 lastIndex = lastIndex - 1;
                                 tabs.get(lastIndex).select();
                             }
                         }
                     } else {    //上滑
-                        if (indexBottomViews.get(lastIndex).getY() + indexBottomViews.get(lastIndex).getMeasuredHeight() < scrollY && !(lastIndex + 1 >= indexBottomViews.size())) {
+                        if (itemViews.get(lastIndex).getY() + itemViews.get(lastIndex).getMeasuredHeight() < scrollY && !(lastIndex + 1 >= itemViews.size())) {
                             lastIndex = lastIndex + 1;
                             tabs.get(lastIndex).select();
                         }
@@ -114,65 +112,47 @@ public class TabScrollView extends LinearLayout {
         });
     }
 
-    boolean hasAddSpace = false;
-    int bottomSpace = 0;
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (!hasAddSpace) {
-            View view = new View(getContext());
-            int height = scrollView.getMeasuredHeight() - indexTopViews.get(indexTopViews.size() - 1).getMeasuredHeight() - indexBottomViews.get(indexBottomViews.size() - 1).getMeasuredHeight() + 3 - bottomSpace;
-            view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
-            rootView.addView(view);
+            rootView.addView(getBottomSpaceView());
             hasAddSpace = true;
         }
     }
 
-    public void setData(String[] strings) {
-        datas = strings;
+
+    private View getBottomSpaceView() {
+        rootView.removeView(bottomspaceView);
+        int height = scrollView.getMeasuredHeight() - itemViews.get(itemViews.size() - 1).getMeasuredHeight() + 3 - bottomSpace;
+        if (bottomspaceView == null) {
+            bottomspaceView = new View(getContext());
+            bottomspaceView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
+        }
+        LayoutParams layoutParams = (LayoutParams) bottomspaceView.getLayoutParams();
+        layoutParams.height = height;
+        return bottomspaceView;
+    }
+
+    public void setBottomSpace(int bottomSpace) {
+        this.bottomSpace = bottomSpace;
+    }
+
+    public void removeAllItems() {
         rootView.removeAllViews();
+        tabLayout.removeAllTabs();
         tabs.clear();
-        indexTopViews.clear();
-        indexBottomViews.clear();
-        for (int i = 0; i < strings.length; i++) {
-            if (i % 2 == 0) {
-                TabLayout.Tab tab = tabLayout.newTab().setText(strings[i]);
-                tabs.add(tab);
-                tabLayout.addTab(tab);
-                TextView titleView = (TextView) (new TitleViewHolder(rootView)).itemView;
-                titleView.setText(strings[i]);
-                indexTopViews.add(titleView);
-                rootView.addView(titleView);
-            } else {
-                TextView titleView = (TextView) (new ItemViewHolder(rootView)).itemView;
-                titleView.setText(strings[i]);
-                indexBottomViews.add(titleView);
-                rootView.addView(titleView);
-            }
-        }
+        itemViews.clear();
     }
 
-
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
-        public ItemViewHolder(ViewGroup parent) {
-            this(new TextView(parent.getContext()));
-        }
-
-        public ItemViewHolder(View itemView) {
-            super(itemView);
-            itemView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
-        }
-    }
-
-    public class TitleViewHolder extends RecyclerView.ViewHolder {
-        public TitleViewHolder(ViewGroup parent) {
-            this(new TextView(parent.getContext()));
-        }
-
-        public TitleViewHolder(View itemView) {
-            super(itemView);
-            itemView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
-            itemView.setBackgroundColor(Color.RED);
+    public void addItem(String tabString, View view) {
+        if (view != null) {
+            TabLayout.Tab tab = tabLayout.newTab().setText(tabString);
+            tabs.add(tab);
+            tabLayout.addTab(tab);
+            itemViews.add(view);
+            rootView.addView(view);
+            rootView.addView(getBottomSpaceView());
         }
     }
 }

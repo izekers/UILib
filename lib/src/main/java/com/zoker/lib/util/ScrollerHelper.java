@@ -1,16 +1,10 @@
 package com.zoker.lib.util;
 
-import android.graphics.Point;
 import android.graphics.PointF;
-import android.support.v4.view.ViewConfigurationCompat;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.widget.Scroller;
-
-import javax.security.auth.callback.Callback;
 
 /**
  * Created by zoker on 2018/1/11.
@@ -54,21 +48,30 @@ public class ScrollerHelper {
 
     public void computeScroll() {
         // 第三步，重写computeScroll()方法，并在其内部完成平滑滚动的逻辑
+        if (callback != null)
+            callback.onMove(view.getScrollX(), view.getScrollY());
         if (mScroller.computeScrollOffset()) {
             view.scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+
             view.invalidate();
         }
     }
 
     /**
      * 只允许在Callback.onRelease()回调中使用，View在松开手后会自动滚动到响应位置
-     * @param endx  结束点x
-     * @param endy  结束点y
+     *
+     * @param endx 结束点x
+     * @param endy 结束点y
      */
     public void autoMove(int endx, int endy) {
         // 当手指抬起时，根据当前的滚动值来判定应该滚动到哪个子控件的界面
         // 第二步，调用startScroll()方法来初始化滚动数据并刷新界面
         mScroller.startScroll(view.getScrollX(), view.getScrollY(), endx - view.getScrollX(), endy - view.getScrollY());
+
+        if (callback != null) {
+            callback.onMove(view.getScrollX(), view.getScrollY());
+        }
+
         view.invalidate();
     }
 
@@ -109,12 +112,18 @@ public class ScrollerHelper {
             case MotionEvent.ACTION_MOVE:
                 mCurrentPoint.x = event.getRawX();
                 mCurrentPoint.y = event.getRawY();
-                int scrolledX = (int) (mCurrentPoint.x - mLastPoint.x);
-                int scrolledY = (int) (mCurrentPoint.y - mLastPoint.y);
-                if (callback != null && callback.isVerticalMove(view.getScrollY(), scrolledY))
-                    callback.onVerticalMove(mCurrentPoint.y, scrolledY);
-                if (callback != null && callback.isHorizontalMove(view.getScrollX(), scrolledX))
-                    callback.onHorizontalMove(mCurrentPoint.x, scrolledX);
+                int dx = (int) (mCurrentPoint.x - mLastPoint.x);
+                int dy = (int) (mCurrentPoint.y - mLastPoint.y);
+                if (callback != null && callback.isVerticalMove(view.getScrollY(), dy)) {
+                    int diffy = callback.clampViewPositionVertical(view.getScrollY(), dy);
+                    view.scrollBy(0, diffy);
+                    callback.onMove(view.getScrollX(), view.getScrollY());
+                }
+                if (callback != null && callback.isHorizontalMove(view.getScrollX(), dx)) {
+                    int diffx = callback.clampViewPositionHorizontal(view.getScrollX(), dx);
+                    view.scrollBy(0, diffx);
+                    callback.onMove(view.getScrollX(), view.getScrollY());
+                }
                 mLastPoint.x = mCurrentPoint.x;
                 mLastPoint.y = mCurrentPoint.y;
                 break;
@@ -138,23 +147,30 @@ public class ScrollerHelper {
         public void onRelease(float scrollX, float scrollY) {
         }
 
+        public void onMove(float scrollX, float scrollY) {
+        }
+
+        ;
+
 
         /**
          * 滑动事件触发
          *
          * @param scrollX View滑动到的点 x坐标 = view.getScrollX();
-         * @param dx       水平线上滑动的距离
+         * @param dx      水平线上滑动的距离
          */
-        public void onHorizontalMove(float scrollX, float dx) {
+        public int clampViewPositionHorizontal(float scrollX, float dx) {
+            return 0;
         }
 
         /**
          * 滑动事件触发
          *
          * @param scrollY View滑动到的点 y坐标 = view.getScrollY();
-         * @param dy       竖直线上滑动的距离
+         * @param dy      竖直线上滑动的距离
          */
-        public void onVerticalMove(float scrollY, float dy) {
+        public int clampViewPositionVertical(float scrollY, float dy) {
+            return 0;
         }
 
         /**
