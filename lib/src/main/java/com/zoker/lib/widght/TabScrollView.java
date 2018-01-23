@@ -133,11 +133,16 @@ public class TabScrollView extends LinearLayout {
         layoutParams.height = height;
         return bottomspaceView;
     }
-
+    /**
+     * 修正底部空隙
+     */
     public void setBottomSpace(int bottomSpace) {
         this.bottomSpace = bottomSpace;
     }
 
+    /**
+     * 移除所有子控件
+     */
     public void removeAllItems() {
         rootView.removeAllViews();
         tabLayout.removeAllTabs();
@@ -145,6 +150,11 @@ public class TabScrollView extends LinearLayout {
         itemViews.clear();
     }
 
+    /**
+     * 添加联动的item
+     * @param tabString tab的名字
+     * @param view      联动的item
+     */
     public void addItem(String tabString, View view) {
         if (view != null) {
             TabLayout.Tab tab = tabLayout.newTab().setText(tabString);

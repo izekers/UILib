@@ -19,7 +19,7 @@ UILib
 * BottomNavigationBar:底部导航栏
 * FlowLayout:流式布局
 * FoldingLayout:折叠布局，暂只支持两个子布局
-
+* TabScrollView:仿支付宝tab和ScrollView联动布局
 工具类
 --
 * ScrollerHelper:由ViewDrawHelper启发，用于快速开发自定义View的滚动效果时使用
@@ -166,6 +166,29 @@ Folding:折叠布局
     </com.zoker.lib.widght.FoldingLayout>
 ```
 
+TabScrollView：仿支付宝tab和Scroll联动布局
+---
+* java代码中使用
+```java
+   /**
+     * 移除所有子控件
+     */
+    public void removeAllItems()   
+    
+    
+   /**
+    * 修正底部空隙
+    */
+   public void setBottomSpace(int bottomSpace)
+        
+        
+    /**
+     * 添加联动的item
+     * @param tabString tab的名字
+     * @param view      联动的item
+      */
+    public void addItem(String tabString, View view) 
+```
 
 # 工具类介绍
 
