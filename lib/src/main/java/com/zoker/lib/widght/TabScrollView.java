@@ -1,19 +1,13 @@
 package com.zoker.lib.widght;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-
-import com.zoker.lib.util.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,7 +118,11 @@ public class TabScrollView extends LinearLayout {
 
     private View getBottomSpaceView() {
         rootView.removeView(bottomspaceView);
-        int height = scrollView.getMeasuredHeight() - itemViews.get(itemViews.size() - 1).getMeasuredHeight() + 3 - bottomSpace;
+        int height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        if (itemViews.isEmpty()) {
+            height = scrollView.getMeasuredHeight() - itemViews.get(itemViews.size() - 1).getMeasuredHeight() + 3 - bottomSpace;
+        }
+
         if (bottomspaceView == null) {
             bottomspaceView = new View(getContext());
             bottomspaceView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
@@ -133,6 +131,7 @@ public class TabScrollView extends LinearLayout {
         layoutParams.height = height;
         return bottomspaceView;
     }
+
     /**
      * 修正底部空隙
      */
@@ -152,6 +151,7 @@ public class TabScrollView extends LinearLayout {
 
     /**
      * 添加联动的item
+     *
      * @param tabString tab的名字
      * @param view      联动的item
      */
