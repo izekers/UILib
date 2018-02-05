@@ -112,6 +112,7 @@ public class TabScrollView extends LinearLayout {
         if (!hasAddSpace) {
             rootView.addView(getBottomSpaceView());
             hasAddSpace = true;
+            invalidate();
         }
     }
 
@@ -119,16 +120,14 @@ public class TabScrollView extends LinearLayout {
     private View getBottomSpaceView() {
         rootView.removeView(bottomspaceView);
         int height = ViewGroup.LayoutParams.WRAP_CONTENT;
-        if (itemViews.isEmpty()) {
+        if (!itemViews.isEmpty()) {
             height = scrollView.getMeasuredHeight() - itemViews.get(itemViews.size() - 1).getMeasuredHeight() + 3 - bottomSpace;
         }
 
         if (bottomspaceView == null) {
             bottomspaceView = new View(getContext());
-            bottomspaceView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
         }
-        LayoutParams layoutParams = (LayoutParams) bottomspaceView.getLayoutParams();
-        layoutParams.height = height;
+        bottomspaceView.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
         return bottomspaceView;
     }
 

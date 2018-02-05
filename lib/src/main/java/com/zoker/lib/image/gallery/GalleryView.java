@@ -15,14 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
 import com.zoker.lib.image.largeimage.LargeImageView;
-import com.zoker.lib.image.largeimage.factory.FileBitmapDecoderFactory;
 import com.zoker.lib.image.largeimage.factory.InputStreamBitmapDecoderFactory;
 
 import java.io.File;
@@ -154,14 +148,14 @@ public class GalleryView extends FrameLayout {
                         convertView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                         String imgPath = model.getSource();
                         if (!isNullOrWhiteSpace(imgPath)) {
-                            Glide.with(getContext()).load(imgPath).downloadOnly(new SimpleTarget<File>() {
-                                @Override
-                                public void onResourceReady(File thumbFile, GlideAnimation<? super File> glideAnimation) {
-                                    if (thumbFile != null && thumbFile.exists()) {
-                                        convertView.setImage(new FileBitmapDecoderFactory(thumbFile));
-                                    }
-                                }
-                            });
+//                            Glide.with(getContext()).load(imgPath).downloadOnly(new SimpleTarget<File>() {
+//                                @Override
+//                                public void onResourceReady(File thumbFile, GlideAnimation<? super File> glideAnimation) {
+//                                    if (thumbFile != null && thumbFile.exists()) {
+//                                        convertView.setImage(new FileBitmapDecoderFactory(thumbFile));
+//                                    }
+//                                }
+//                            });
                         }
                     }
                 });
